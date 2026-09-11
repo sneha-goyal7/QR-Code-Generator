@@ -16,6 +16,17 @@ sizes.addEventListener('change',(e)=>{
     isEmptyInput();
 });
 
+downloadBtn.addEventListener('click',()=>{
+    let img=document.querySelector('.qr-body img')
+    if(img!==null){
+        let imagAttr=img.getAttribute('src');
+        downloadBtn.setAttribute("href",imgAttr);
+    }
+    else{
+        downloadBtn.setAttribute("href",`${document.qquerySelector('canvas').toDataURL}`);
+    }
+})
+
 function isEmptyInput(){
     //qrText.value.length>0?generateQRCode():alert("enpty block");
     if(qrText.value.length>0){
@@ -36,5 +47,3 @@ function generateQRCode(){
         colorDark:"#e85216",
     });
 }
-
- 
